@@ -3,7 +3,7 @@ import { RouteProvider } from "@/providers/route-provider";
 import { StrictMode } from "react";
 import "./styles.css";
 
-export function App() {
+export function Root() {
   return (
     <StrictMode>
       <QueryProvider>

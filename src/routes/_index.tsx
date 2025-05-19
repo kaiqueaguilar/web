@@ -1,6 +1,6 @@
 import { Link, Outlet, createFileRoute } from "@tanstack/react-router";
 
-export const Route = createFileRoute("/")({
+export const Route = createFileRoute("/_index")({
   component: Component,
 });
 
@@ -11,7 +11,7 @@ function Component() {
         <Link to="/home" className="[&.active]:font-bold">
           Home
         </Link>
-        <Link to="/abount" className="[&.active]:font-bold">
+        <Link to="/about" className="[&.active]:font-bold">
           About
         </Link>
       </div>

@@ -11,98 +11,105 @@
 // Import Routes
 
 import { Route as rootRoute } from './../routes/__root'
-import { Route as HomeImport } from './../routes/home'
-import { Route as AboutImport } from './../routes/about'
-import { Route as IndexImport } from './../routes/index'
+import { Route as IndexImport } from './../routes/_index'
+import { Route as IndexHomeImport } from './../routes/_index/home'
+import { Route as IndexAboutImport } from './../routes/_index/about'
 
 // Create/Update Routes
 
-const HomeRoute = HomeImport.update({
+const IndexRoute = IndexImport.update({
+  id: '/_index',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const IndexHomeRoute = IndexHomeImport.update({
   id: '/home',
   path: '/home',
-  getParentRoute: () => rootRoute,
+  getParentRoute: () => IndexRoute,
 } as any)
 
-const AboutRoute = AboutImport.update({
+const IndexAboutRoute = IndexAboutImport.update({
   id: '/about',
   path: '/about',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const IndexRoute = IndexImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => rootRoute,
+  getParentRoute: () => IndexRoute,
 } as any)
 
 // Populate the FileRoutesByPath interface
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
+    '/_index': {
+      id: '/_index'
+      path: ''
+      fullPath: ''
       preLoaderRoute: typeof IndexImport
       parentRoute: typeof rootRoute
     }
-    '/about': {
-      id: '/about'
+    '/_index/about': {
+      id: '/_index/about'
       path: '/about'
       fullPath: '/about'
-      preLoaderRoute: typeof AboutImport
-      parentRoute: typeof rootRoute
+      preLoaderRoute: typeof IndexAboutImport
+      parentRoute: typeof IndexImport
     }
-    '/home': {
-      id: '/home'
+    '/_index/home': {
+      id: '/_index/home'
       path: '/home'
       fullPath: '/home'
-      preLoaderRoute: typeof HomeImport
-      parentRoute: typeof rootRoute
+      preLoaderRoute: typeof IndexHomeImport
+      parentRoute: typeof IndexImport
     }
   }
 }
 
 // Create and export the route tree
 
+interface IndexRouteChildren {
+  IndexAboutRoute: typeof IndexAboutRoute
+  IndexHomeRoute: typeof IndexHomeRoute
+}
+
+const IndexRouteChildren: IndexRouteChildren = {
+  IndexAboutRoute: IndexAboutRoute,
+  IndexHomeRoute: IndexHomeRoute,
+}
+
+const IndexRouteWithChildren = IndexRoute._addFileChildren(IndexRouteChildren)
+
 export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
-  '/about': typeof AboutRoute
-  '/home': typeof HomeRoute
+  '': typeof IndexRouteWithChildren
+  '/about': typeof IndexAboutRoute
+  '/home': typeof IndexHomeRoute
 }
 
 export interface FileRoutesByTo {
-  '/': typeof IndexRoute
-  '/about': typeof AboutRoute
-  '/home': typeof HomeRoute
+  '': typeof IndexRouteWithChildren
+  '/about': typeof IndexAboutRoute
+  '/home': typeof IndexHomeRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
-  '/': typeof IndexRoute
-  '/about': typeof AboutRoute
-  '/home': typeof HomeRoute
+  '/_index': typeof IndexRouteWithChildren
+  '/_index/about': typeof IndexAboutRoute
+  '/_index/home': typeof IndexHomeRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/home'
+  fullPaths: '' | '/about' | '/home'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/home'
-  id: '__root__' | '/' | '/about' | '/home'
+  to: '' | '/about' | '/home'
+  id: '__root__' | '/_index' | '/_index/about' | '/_index/home'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute
-  AboutRoute: typeof AboutRoute
-  HomeRoute: typeof HomeRoute
+  IndexRoute: typeof IndexRouteWithChildren
 }
 
 const rootRouteChildren: RootRouteChildren = {
-  IndexRoute: IndexRoute,
-  AboutRoute: AboutRoute,
-  HomeRoute: HomeRoute,
+  IndexRoute: IndexRouteWithChildren,
 }
 
 export const routeTree = rootRoute
@@ -115,19 +122,23 @@ export const routeTree = rootRoute
     "__root__": {
       "filePath": "__root.tsx",
       "children": [
-        "/",
-        "/about",
-        "/home"
+        "/_index"
       ]
     },
-    "/": {
-      "filePath": "index.tsx"
+    "/_index": {
+      "filePath": "_index.tsx",
+      "children": [
+        "/_index/about",
+        "/_index/home"
+      ]
     },
-    "/about": {
-      "filePath": "about.tsx"
+    "/_index/about": {
+      "filePath": "_index/about.tsx",
+      "parent": "/_index"
     },
-    "/home": {
-      "filePath": "home.tsx"
+    "/_index/home": {
+      "filePath": "_index/home.tsx",
+      "parent": "/_index"
     }
   }
 }

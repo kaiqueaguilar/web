@@ -12,7 +12,7 @@
 
 import { Route as rootRoute } from './../routes/__root'
 import { Route as HomeImport } from './../routes/home'
-import { Route as AbountImport } from './../routes/abount'
+import { Route as AboutImport } from './../routes/about'
 import { Route as IndexImport } from './../routes/index'
 
 // Create/Update Routes
@@ -23,9 +23,9 @@ const HomeRoute = HomeImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
-const AbountRoute = AbountImport.update({
-  id: '/abount',
-  path: '/abount',
+const AboutRoute = AboutImport.update({
+  id: '/about',
+  path: '/about',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -46,11 +46,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexImport
       parentRoute: typeof rootRoute
     }
-    '/abount': {
-      id: '/abount'
-      path: '/abount'
-      fullPath: '/abount'
-      preLoaderRoute: typeof AbountImport
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutImport
       parentRoute: typeof rootRoute
     }
     '/home': {
@@ -67,41 +67,41 @@ declare module '@tanstack/react-router' {
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/abount': typeof AbountRoute
+  '/about': typeof AboutRoute
   '/home': typeof HomeRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/abount': typeof AbountRoute
+  '/about': typeof AboutRoute
   '/home': typeof HomeRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
-  '/abount': typeof AbountRoute
+  '/about': typeof AboutRoute
   '/home': typeof HomeRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/abount' | '/home'
+  fullPaths: '/' | '/about' | '/home'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/abount' | '/home'
-  id: '__root__' | '/' | '/abount' | '/home'
+  to: '/' | '/about' | '/home'
+  id: '__root__' | '/' | '/about' | '/home'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  AbountRoute: typeof AbountRoute
+  AboutRoute: typeof AboutRoute
   HomeRoute: typeof HomeRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  AbountRoute: AbountRoute,
+  AboutRoute: AboutRoute,
   HomeRoute: HomeRoute,
 }
 
@@ -116,15 +116,15 @@ export const routeTree = rootRoute
       "filePath": "__root.tsx",
       "children": [
         "/",
-        "/abount",
+        "/about",
         "/home"
       ]
     },
     "/": {
       "filePath": "index.tsx"
     },
-    "/abount": {
-      "filePath": "abount.tsx"
+    "/about": {
+      "filePath": "about.tsx"
     },
     "/home": {
       "filePath": "home.tsx"

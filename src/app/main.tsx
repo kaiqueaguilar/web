@@ -1,9 +1,10 @@
 import { QueryProvider } from "@/providers/query-provider";
 import { RouteProvider } from "@/providers/route-provider";
 import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
 import "./styles.css";
 
-export function Root() {
+function Main() {
   return (
     <StrictMode>
       <QueryProvider>
@@ -11,4 +12,10 @@ export function Root() {
       </QueryProvider>
     </StrictMode>
   );
+}
+
+const root = document.getElementById("root");
+
+if (root) {
+  createRoot(root).render(<Main />);
 }

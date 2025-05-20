@@ -8,9 +8,9 @@ export default defineConfig({
     TanStackRouterVite({
       target: "react",
       autoCodeSplitting: true,
-      generatedRouteTree: "./src/gen/route-tree.gen.ts",
       indexToken: "page",
       routeToken: "layout",
+      generatedRouteTree: "src/gen/route-tree.gen.ts",
     }),
     react(),
   ],

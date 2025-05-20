@@ -9,7 +9,6 @@ export default defineConfig({
       target: "react",
       autoCodeSplitting: true,
       generatedRouteTree: "./src/gen/route-tree.gen.ts",
-      routesDirectory: "./src/routes",
       indexToken: "page",
       routeToken: "layout",
     }),

@@ -1,15 +1,15 @@
-import { routeTree } from "@/gen/route-tree.gen";
-import { RouterProvider, createRouter } from "@tanstack/react-router";
-import { queryClient } from "./query-provider";
+import { routeTree } from "@/gen/route-tree.gen"
+import { query } from "@/providers/query-provider"
+import { RouterProvider, createRouter } from "@tanstack/react-router"
 
 export const router = createRouter({
   routeTree,
   defaultPreload: "intent",
   context: {
-    queryClient,
+    query,
   },
-});
+})
 
 export function RouteProvider() {
-  return <RouterProvider router={router} />;
+  return <RouterProvider router={router} />
 }

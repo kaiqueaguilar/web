@@ -9,10 +9,8 @@ declare module "@tanstack/react-router" {
   export interface RouteContext {
     metadata?: {
       title: string;
-      icon?: string;
       description?: string;
-      keywords?: string[];
     };
-    queryClient: QueryClient;
+    query: QueryClient;
   }
 }

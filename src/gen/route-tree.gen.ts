@@ -11,105 +11,129 @@
 // Import Routes
 
 import { Route as rootRoute } from './../routes/__root'
-import { Route as IndexImport } from './../routes/_index'
-import { Route as IndexHomeImport } from './../routes/_index/home'
-import { Route as IndexAboutImport } from './../routes/_index/about'
+import { Route as shellLayoutImport } from './../routes/(shell)/layout'
+import { Route as shellPageImport } from './../routes/(shell)/page'
+import { Route as shellHomePageImport } from './../routes/(shell)/home/page'
+import { Route as shellAboutPageImport } from './../routes/(shell)/about/page'
 
 // Create/Update Routes
 
-const IndexRoute = IndexImport.update({
-  id: '/_index',
+const shellLayoutRoute = shellLayoutImport.update({
+  id: '/(shell)',
   getParentRoute: () => rootRoute,
 } as any)
 
-const IndexHomeRoute = IndexHomeImport.update({
-  id: '/home',
-  path: '/home',
-  getParentRoute: () => IndexRoute,
+const shellPageRoute = shellPageImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => shellLayoutRoute,
 } as any)
 
-const IndexAboutRoute = IndexAboutImport.update({
-  id: '/about',
-  path: '/about',
-  getParentRoute: () => IndexRoute,
+const shellHomePageRoute = shellHomePageImport.update({
+  id: '/home/',
+  path: '/home/',
+  getParentRoute: () => shellLayoutRoute,
+} as any)
+
+const shellAboutPageRoute = shellAboutPageImport.update({
+  id: '/about/',
+  path: '/about/',
+  getParentRoute: () => shellLayoutRoute,
 } as any)
 
 // Populate the FileRoutesByPath interface
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/_index': {
-      id: '/_index'
-      path: ''
-      fullPath: ''
-      preLoaderRoute: typeof IndexImport
+    '/(shell)': {
+      id: '/(shell)'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof shellLayoutImport
       parentRoute: typeof rootRoute
     }
-    '/_index/about': {
-      id: '/_index/about'
+    '/(shell)/': {
+      id: '/(shell)/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof shellPageImport
+      parentRoute: typeof shellLayoutImport
+    }
+    '/(shell)/about/': {
+      id: '/(shell)/about/'
       path: '/about'
       fullPath: '/about'
-      preLoaderRoute: typeof IndexAboutImport
-      parentRoute: typeof IndexImport
+      preLoaderRoute: typeof shellAboutPageImport
+      parentRoute: typeof shellLayoutImport
     }
-    '/_index/home': {
-      id: '/_index/home'
+    '/(shell)/home/': {
+      id: '/(shell)/home/'
       path: '/home'
       fullPath: '/home'
-      preLoaderRoute: typeof IndexHomeImport
-      parentRoute: typeof IndexImport
+      preLoaderRoute: typeof shellHomePageImport
+      parentRoute: typeof shellLayoutImport
     }
   }
 }
 
 // Create and export the route tree
 
-interface IndexRouteChildren {
-  IndexAboutRoute: typeof IndexAboutRoute
-  IndexHomeRoute: typeof IndexHomeRoute
+interface shellLayoutRouteChildren {
+  shellPageRoute: typeof shellPageRoute
+  shellAboutPageRoute: typeof shellAboutPageRoute
+  shellHomePageRoute: typeof shellHomePageRoute
 }
 
-const IndexRouteChildren: IndexRouteChildren = {
-  IndexAboutRoute: IndexAboutRoute,
-  IndexHomeRoute: IndexHomeRoute,
+const shellLayoutRouteChildren: shellLayoutRouteChildren = {
+  shellPageRoute: shellPageRoute,
+  shellAboutPageRoute: shellAboutPageRoute,
+  shellHomePageRoute: shellHomePageRoute,
 }
 
-const IndexRouteWithChildren = IndexRoute._addFileChildren(IndexRouteChildren)
+const shellLayoutRouteWithChildren = shellLayoutRoute._addFileChildren(
+  shellLayoutRouteChildren,
+)
 
 export interface FileRoutesByFullPath {
-  '': typeof IndexRouteWithChildren
-  '/about': typeof IndexAboutRoute
-  '/home': typeof IndexHomeRoute
+  '/': typeof shellPageRoute
+  '/about': typeof shellAboutPageRoute
+  '/home': typeof shellHomePageRoute
 }
 
 export interface FileRoutesByTo {
-  '': typeof IndexRouteWithChildren
-  '/about': typeof IndexAboutRoute
-  '/home': typeof IndexHomeRoute
+  '/': typeof shellPageRoute
+  '/about': typeof shellAboutPageRoute
+  '/home': typeof shellHomePageRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
-  '/_index': typeof IndexRouteWithChildren
-  '/_index/about': typeof IndexAboutRoute
-  '/_index/home': typeof IndexHomeRoute
+  '/(shell)': typeof shellLayoutRouteWithChildren
+  '/(shell)/': typeof shellPageRoute
+  '/(shell)/about/': typeof shellAboutPageRoute
+  '/(shell)/home/': typeof shellHomePageRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '' | '/about' | '/home'
+  fullPaths: '/' | '/about' | '/home'
   fileRoutesByTo: FileRoutesByTo
-  to: '' | '/about' | '/home'
-  id: '__root__' | '/_index' | '/_index/about' | '/_index/home'
+  to: '/' | '/about' | '/home'
+  id:
+    | '__root__'
+    | '/(shell)'
+    | '/(shell)/'
+    | '/(shell)/about/'
+    | '/(shell)/home/'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRouteWithChildren
+  shellLayoutRoute: typeof shellLayoutRouteWithChildren
 }
 
 const rootRouteChildren: RootRouteChildren = {
-  IndexRoute: IndexRouteWithChildren,
+  shellLayoutRoute: shellLayoutRouteWithChildren,
 }
 
 export const routeTree = rootRoute
@@ -122,23 +146,28 @@ export const routeTree = rootRoute
     "__root__": {
       "filePath": "__root.tsx",
       "children": [
-        "/_index"
+        "/(shell)"
       ]
     },
-    "/_index": {
-      "filePath": "_index.tsx",
+    "/(shell)": {
+      "filePath": "(shell)/layout.tsx",
       "children": [
-        "/_index/about",
-        "/_index/home"
+        "/(shell)/",
+        "/(shell)/about/",
+        "/(shell)/home/"
       ]
     },
-    "/_index/about": {
-      "filePath": "_index/about.tsx",
-      "parent": "/_index"
+    "/(shell)/": {
+      "filePath": "(shell)/page.tsx",
+      "parent": "/(shell)"
     },
-    "/_index/home": {
-      "filePath": "_index/home.tsx",
-      "parent": "/_index"
+    "/(shell)/about/": {
+      "filePath": "(shell)/about/page.tsx",
+      "parent": "/(shell)"
+    },
+    "/(shell)/home/": {
+      "filePath": "(shell)/home/page.tsx",
+      "parent": "/(shell)"
     }
   }
 }

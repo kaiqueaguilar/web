@@ -1,13 +1,13 @@
-import { Link, Outlet, createFileRoute } from "@tanstack/react-router";
+import { Link, Outlet, createFileRoute } from "@tanstack/react-router"
 
-export const Route = createFileRoute("/_index")({
+export const Route = createFileRoute("/(shell)")({
   component: Component,
-});
+})
 
 function Component() {
   return (
     <>
-      <div className="p-2 flex gap-2">
+      <div className="flex gap-2 p-2">
         <Link to="/home" className="[&.active]:font-bold">
           Home
         </Link>
@@ -18,5 +18,5 @@ function Component() {
       <hr />
       <Outlet />
     </>
-  );
+  )
 }

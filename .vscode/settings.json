@@ -6,7 +6,6 @@
     "source.fixAll": "explicit",
     "source.organizeImports.biome": "explicit"
   },
-  "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
   "files.watcherExclude": {
     "**/gen/**": true
   },

@@ -1,9 +1,9 @@
 import HyperDX from "@hyperdx/browser";
 import { createRoot } from "react-dom/client";
+import { App } from "./app";
 import { env } from "./env";
-import { Root } from "./root";
 
-createRoot(document.body).render(Root());
+createRoot(document.body).render(App());
 
 HyperDX.init({
   apiKey: env.HYPERDX_API_KEY,

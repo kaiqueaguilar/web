@@ -1,4 +1,4 @@
-import { url, object, string, uuid } from "zod";
+import { url, object, string, uuid } from "zod/v4";
 
 export const env = object({
   HYPERDX_API_KEY: uuid(),

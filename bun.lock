@@ -12,7 +12,7 @@
         "@tanstack/react-virtual": "^3.13.9",
         "react": "^19.1.0",
         "react-dom": "^19.1.0",
-        "zod": "4.0.0-beta.20250505T001445",
+        "zod": "^3.25.51",
       },
       "devDependencies": {
         "@biomejs/biome": "1.9.4",
@@ -321,8 +321,6 @@
 
     "@xstate/fsm": ["@xstate/fsm@1.6.5", "", {}, "sha512-b5o1I6aLNeYlU/3CPlj/Z91ybk1gUsKT+5NAJI+2W4UjvS5KLG28K9v5UvNoFVjHV8PajVZ00RH3vnjyQO7ZAw=="],
 
-    "@zod/core": ["@zod/core@0.11.3", "", {}, "sha512-+LJ81SfU6jX6h/wR/CvAj45oSGgYBHZiaaYPB+2QE4+8C5L91rDYxijt/2OdSE3NiL4DZtD0eD8ImFUesoOVoQ=="],
-
     "acorn": ["acorn@8.14.1", "", { "bin": { "acorn": "bin/acorn" } }, "sha512-OvQ/2pUDKmgfCg++xsTX1wGxfTaszcHVcTctW4UJB4hibJx2HXxxO5UmVgyjMa+ZDsiaf5wWLXYpRWMmBI0QHg=="],
 
     "acorn-import-attributes": ["acorn-import-attributes@1.9.5", "", { "peerDependencies": { "acorn": "^8" } }, "sha512-n02Vykv5uA3eHGM/Z2dQrcD56kL8TyDb2p1+0P83PClMnC/nc+anbQRhIOWnSq4Ke/KvDPrY3C9hDtC/A3eHnQ=="],
@@ -501,7 +499,7 @@
 
     "yallist": ["yallist@3.1.1", "", {}, "sha512-a4UGQaWPH59mOXUYnAG2ewncQS4i4F43Tv3JoAM+s2VDAmS9NsK8GpDMLrCHPksFT7h3K6TOoUNn2pb7RoXx4g=="],
 
-    "zod": ["zod@4.0.0-beta.20250505T001445", "", { "dependencies": { "@zod/core": "0.11.3" } }, "sha512-yloxrPF8b2YEPriVlvLxYMQr+fQ7pXl+fpBoxnfY3a/A06sPhAhas/Di8tRTW9C4PYGeBWn8sEHljJa8HGMH6g=="],
+    "zod": ["zod@3.25.51", "", {}, "sha512-TQSnBldh+XSGL+opiSIq0575wvDPqu09AqWe1F7JhUMKY+M91/aGlK4MhpVNO7MgYfHcVCB1ffwAUTJzllKJqg=="],
 
     "zone.js": ["zone.js@0.14.10", "", {}, "sha512-YGAhaO7J5ywOXW6InXNlLmfU194F8lVgu7bRntUF3TiG8Y3nBK0x1UJJuHUP/e8IyihkjCYqhCScpSwnlaSRkQ=="],
 

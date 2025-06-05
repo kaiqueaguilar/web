@@ -1,6 +1,6 @@
-import { routeTree } from "@/gen/route-tree.gen"
-import { query } from "@/providers/query-provider"
-import { RouterProvider, createRouter } from "@tanstack/react-router"
+import { routeTree } from "@/gen/route-tree.gen";
+import { query } from "@/providers/query-provider";
+import { RouterProvider, createRouter } from "@tanstack/react-router";
 
 export const router = createRouter({
   routeTree,
@@ -8,8 +8,8 @@ export const router = createRouter({
   context: {
     query,
   },
-})
+});
 
 export function RouteProvider() {
-  return <RouterProvider router={router} />
+  return <RouterProvider router={router} />;
 }

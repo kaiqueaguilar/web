@@ -1,8 +1,8 @@
-import { Link, Outlet, createFileRoute } from "@tanstack/react-router"
+import { Link, Outlet, createFileRoute } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/(shell)")({
   component: Component,
-})
+});
 
 function Component() {
   return (
@@ -18,5 +18,5 @@ function Component() {
       <hr />
       <Outlet />
     </>
-  )
+  );
 }

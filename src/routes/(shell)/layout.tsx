@@ -1,3 +1,4 @@
+import { css } from "@/styles/classnames/css";
 import { Link, Outlet, createFileRoute } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/(shell)")({
@@ -7,13 +8,9 @@ export const Route = createFileRoute("/(shell)")({
 function Component() {
   return (
     <>
-      <div className="flex gap-2 p-2">
-        <Link to="/home" className="[&.active]:font-bold">
-          Home
-        </Link>
-        <Link to="/about" className="[&.active]:font-bold">
-          About
-        </Link>
+      <div className={css({ bgColor: "", w: "" })}>
+        <Link to="/home">Home</Link>
+        <Link to="/about">About</Link>
       </div>
       <hr />
       <Outlet />

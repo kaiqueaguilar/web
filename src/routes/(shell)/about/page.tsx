@@ -12,7 +12,7 @@ export const Route = createFileRoute("/(shell)/about/")({
 
 function Component() {
   return (
-    <div className="p-2">
+    <div>
       <h3>Welcome About!</h3>
     </div>
   );

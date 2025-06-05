@@ -6,13 +6,26 @@
     "source.fixAll": "explicit",
     "source.organizeImports.biome": "explicit"
   },
+  "files.exclude": {
+    ".vscode": true,
+    "node_modules": true
+  },
   "files.watcherExclude": {
-    "**/gen/**": true
+    "**/*.gen.*": true,
+    "node_modules/**": true,
+    "**/classnames/**": true,
+    "*.lock": true
   },
   "search.exclude": {
-    "**/gen/**": true
+    "**/*.gen.*": true,
+    "node_modules/**": true,
+    "**/classnames/**": true,
+    "*.lock": true
   },
   "files.readonlyInclude": {
-    "**/gen/**": true
+    "**/*.gen.*": true,
+    "node_modules/**": true,
+    "**/classnames/**": true,
+    "*.lock": true
   }
 }

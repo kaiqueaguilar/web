@@ -7,7 +7,7 @@
   },
   "files": {
     "ignoreUnknown": false,
-    "ignore": ["src/gen", "node_modules", "*.lock"]
+    "ignore": ["node_modules", "*.lock", "**/*.gen.*", "**/classnames/**"]
   },
   "formatter": {
     "enabled": true,

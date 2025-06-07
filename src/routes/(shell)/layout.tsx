@@ -8,7 +8,7 @@ export const Route = createFileRoute("/(shell)")({
 function Component() {
   return (
     <>
-      <Flex>
+      <Flex gap="2">
         <Link to="/">Start</Link>
         <Link to="/home">Home</Link>
         <Link to="/about">About</Link>

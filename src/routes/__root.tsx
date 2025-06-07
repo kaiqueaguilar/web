@@ -30,10 +30,10 @@ export const Route = createRootRouteWithContext<RouteContext>()({
 
     return { meta };
   },
-  component: RootComponent,
+  component: Component,
 });
 
-function RootComponent() {
+function Component() {
   return (
     <>
       <HeadContent />

@@ -10,22 +10,16 @@
     ".vscode": true,
     "node_modules": true
   },
-  "files.watcherExclude": {
-    "**/*.gen.*": true,
-    "node_modules/**": true,
-    "**/classnames/**": true,
-    "*.lock": true
-  },
   "search.exclude": {
     "**/*.gen.*": true,
     "node_modules/**": true,
-    "**/classnames/**": true,
+    "src/styles/**": true,
     "*.lock": true
   },
   "files.readonlyInclude": {
     "**/*.gen.*": true,
     "node_modules/**": true,
-    "**/classnames/**": true,
+    "src/styles/**": true,
     "*.lock": true
   }
 }

@@ -1,4 +1,4 @@
-import { css } from "@/styles/classnames/css";
+import { Divider, Flex } from "@/styles/jsx";
 import { Link, Outlet, createFileRoute } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/(shell)")({
@@ -8,11 +8,12 @@ export const Route = createFileRoute("/(shell)")({
 function Component() {
   return (
     <>
-      <div className={css({ bgColor: "", w: "" })}>
+      <Flex>
+        <Link to="/">Start</Link>
         <Link to="/home">Home</Link>
         <Link to="/about">About</Link>
-      </div>
-      <hr />
+      </Flex>
+      <Divider />
       <Outlet />
     </>
   );

@@ -1,4 +1,4 @@
 node_modules
 *.env
-**/classnames
-**/classnames-studio
+src/styles
+src/styles-studio

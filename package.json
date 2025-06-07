@@ -12,20 +12,20 @@
   },
   "dependencies": {
     "@hyperdx/browser": "^0.21.2",
-    "@tanstack/react-form": "^1.12.1",
-    "@tanstack/react-query": "^5.80.5",
-    "@tanstack/react-router": "^1.120.15",
+    "@tanstack/react-form": "^1.12.2",
+    "@tanstack/react-query": "^5.80.6",
+    "@tanstack/react-router": "^1.120.18",
     "@tanstack/react-table": "^8.21.3",
     "@tanstack/react-virtual": "^3.13.9",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "zod": "^3.25.51"
+    "zod": "^3.25.56"
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
     "@pandacss/dev": "^0.53.7",
-    "@tanstack/router-plugin": "^1.120.15",
-    "@types/node": "^22.15.29",
+    "@tanstack/router-plugin": "^1.120.18",
+    "@types/node": "^22.15.30",
     "@types/react": "^19.1.6",
     "@types/react-dom": "^19.1.6",
     "@vitejs/plugin-react": "^4.5.1",

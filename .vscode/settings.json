@@ -13,13 +13,11 @@
   "search.exclude": {
     "**/*.gen.*": true,
     "node_modules/**": true,
-    "src/styles/**": true,
     "*.lock": true
   },
   "files.readonlyInclude": {
     "**/*.gen.*": true,
     "node_modules/**": true,
-    "src/styles/**": true,
     "*.lock": true
   }
 }

@@ -1,4 +1,4 @@
-import { Text } from "@/components/primitives/text";
+import { Text } from "@/components/text";
 import { Box } from "@/styles/jsx";
 import { createFileRoute } from "@tanstack/react-router";
 

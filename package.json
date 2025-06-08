@@ -25,7 +25,6 @@
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
     "@pandacss/dev": "^0.53.7",
-    "@park-ui/panda-preset": "^0.43.1",
     "@tanstack/router-plugin": "^1.120.18",
     "@types/node": "^22.15.30",
     "@types/react": "^19.1.6",

@@ -1,5 +1,5 @@
-import { Text } from "@/components/primitives/text";
-import { Box } from "@/styles/jsx";
+import { Text } from "@/components/text";
+import { Box, Flex } from "@/styles/jsx";
 import { createFileRoute } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/(shell)/home/")({
@@ -15,7 +15,9 @@ export const Route = createFileRoute("/(shell)/home/")({
 function Component() {
   return (
     <Box>
-      <Text>Home</Text>
+      <Flex direction="column">
+        <Text>Home</Text>
+      </Flex>
     </Box>
   );
 }

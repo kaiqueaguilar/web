@@ -2,15 +2,12 @@ import { createFileRoute } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/(shell)/about/")({
   context: () => ({
-    metadata: {
-      title: "About",
-      description: "This is the about page.",
-    },
+    title: "About",
   }),
-  component: Component,
+  component: RouteComponent,
 });
 
-function Component() {
+function RouteComponent() {
   return (
     <div>
       <span>About</span>

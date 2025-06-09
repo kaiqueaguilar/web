@@ -1,10 +1,10 @@
 import { Link, Outlet, createFileRoute } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/(shell)")({
-  component: Component,
+  component: RouteComponent,
 });
 
-function Component() {
+function RouteComponent() {
   return (
     <>
       <div>

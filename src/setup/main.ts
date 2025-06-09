@@ -1,5 +1,5 @@
+import { RouteProvider } from "@/components/providers/route-provider";
 import { createRoot } from "react-dom/client";
-import { App } from "./app";
 import "./observability";
 
-createRoot(document.body).render(App());
+createRoot(document.body).render(RouteProvider());

@@ -1,5 +1,5 @@
 import "@tanstack/react-router";
-import type { router } from "@/providers/route-provider";
+import type { router } from "@/components/providers/route-provider";
 import type { QueryClient } from "@tanstack/react-query";
 
 declare module "@tanstack/react-router" {
@@ -7,10 +7,8 @@ declare module "@tanstack/react-router" {
     router: typeof router;
   }
   export interface RouteContext {
-    metadata?: {
-      title: string;
-      description?: string;
-    };
-    query: QueryClient;
+    readonly title?: string;
+    readonly description?: string;
+    readonly query: QueryClient;
   }
 }

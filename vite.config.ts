@@ -10,7 +10,7 @@ export default defineConfig({
       target: "react",
       indexToken: "page",
       routeToken: "layout",
-      generatedRouteTree: "src/setup/route-tree.gen.ts",
+      generatedRouteTree: "src/lib/gen/route-tree.gen.ts",
     }),
     react(),
   ],

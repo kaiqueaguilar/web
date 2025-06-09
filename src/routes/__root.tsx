@@ -1,3 +1,4 @@
+import { QueryProvider } from "@/components/providers/query-provider";
 import {
   type AnyRouteMatch,
   HeadContent,
@@ -9,36 +10,38 @@ import {
 
 export const Route = createRootRouteWithContext<RouteContext>()({
   head: ({ matches }) => {
-    const metadata = matches.at(-1)?.context.metadata;
+    const context = matches.at(-1)?.context;
 
-    if (!metadata) {
+    if (!context) {
       return { meta: [] };
     }
 
     const meta: AnyRouteMatch["meta"] = [];
 
-    if (metadata.title) {
-      meta.push({ title: metadata.title });
+    if (context.title) {
+      meta.push({ title: context.title });
     }
 
-    if (metadata.description) {
+    if (context.description) {
       meta.push({
         name: "description",
-        content: metadata.description,
+        content: context.description,
       });
     }
 
     return { meta };
   },
-  component: Component,
+  component: RouteComponent,
 });
 
-function Component() {
+function RouteComponent() {
   return (
     <>
       <HeadContent />
-      <Outlet />
       <Scripts />
+      <QueryProvider>
+        <Outlet />
+      </QueryProvider>
     </>
   );
 }

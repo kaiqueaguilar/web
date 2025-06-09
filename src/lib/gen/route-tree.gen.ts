@@ -10,11 +10,11 @@
 
 // Import Routes
 
-import { Route as rootRoute } from './../routes/__root'
-import { Route as shellLayoutImport } from './../routes/(shell)/layout'
-import { Route as shellPageImport } from './../routes/(shell)/page'
-import { Route as shellHomePageImport } from './../routes/(shell)/home/page'
-import { Route as shellAboutPageImport } from './../routes/(shell)/about/page'
+import { Route as rootRoute } from './../../routes/__root'
+import { Route as shellLayoutImport } from './../../routes/(shell)/layout'
+import { Route as shellPageImport } from './../../routes/(shell)/page'
+import { Route as shellHomePageImport } from './../../routes/(shell)/home/page'
+import { Route as shellAboutPageImport } from './../../routes/(shell)/about/page'
 
 // Create/Update Routes
 

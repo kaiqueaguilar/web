@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite --port 4000",
+    "dev": "vite --port 4000 --mode dev",
     "build": "tsc -b && vite build",
     "preview": "vite preview",
     "lint": "bunx biome check --write ."

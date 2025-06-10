@@ -1,9 +1,7 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { type RouteContext, createFileRoute } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/(shell)/about/")({
-  context: () => ({
-    title: "About",
-  }),
+  context: (): Partial<RouteContext> => ({ title: "About" }),
   component: RouteComponent,
 });
 

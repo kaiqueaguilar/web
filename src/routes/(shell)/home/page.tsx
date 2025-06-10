@@ -1,9 +1,7 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { type RouteContext, createFileRoute } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/(shell)/home/")({
-  context: () => ({
-    title: "Home",
-  }),
+  context: (): Partial<RouteContext> => ({ title: "Home" }),
   component: RouteComponent,
 });
 

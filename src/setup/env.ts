@@ -1,9 +1,11 @@
-import { url, literal, object, string, uuid } from "zod/v4";
+import { url, literal, object, parse, string, uuid } from "zod/v4";
 
-export const env = object({
+const schema = object({
   MODE: literal(["dev", "prd", "stg"]),
   PUBLIC_API_URL: url(),
   PUBLIC_HYPERDX_URL: url(),
   PUBLIC_HYPERDX_API_KEY: uuid(),
   PUBLIC_HYPERDX_SERVICE: string(),
-}).parse(import.meta.env);
+});
+
+export const env = parse(schema, import.meta.env);

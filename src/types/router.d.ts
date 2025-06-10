@@ -8,7 +8,6 @@ declare module "@tanstack/react-router" {
   }
   export interface RouteContext {
     readonly title?: string;
-    readonly description?: string;
     readonly query: QueryClient;
   }
 }

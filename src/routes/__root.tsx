@@ -10,23 +10,11 @@ import {
 
 export const Route = createRootRouteWithContext<RouteContext>()({
   head: ({ matches }) => {
-    const context = matches.at(-1)?.context;
-
-    if (!context) {
-      return { meta: [] };
-    }
-
     const meta: AnyRouteMatch["meta"] = [];
+    const match = matches.at(-1);
 
-    if (context.title) {
-      meta.push({ title: context.title });
-    }
-
-    if (context.description) {
-      meta.push({
-        name: "description",
-        content: context.description,
-      });
+    if (match?.context.title) {
+      meta.push({ title: match.context.title });
     }
 
     return { meta };
